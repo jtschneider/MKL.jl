@@ -76,7 +76,7 @@ function get_precompile_statments_file()
     prec_jl_content = read(prec_jl_fn, String)
     # PackageCompiler.jl already inits stdio and double initing it leads to bad things
     jl_content = replace(prec_jl_content, "Base.reinit_stdio()" => "# Base.reinit_stdio()")
-    jl_content = replace(prec_jl_content, "devnull" => "stdout")
+    jl_content = replace(jl_content, "devnull" => "stdout")
     write(prec_jl_fn, jl_content)
     return prec_jl_fn
 end
