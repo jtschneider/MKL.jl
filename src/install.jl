@@ -105,6 +105,7 @@ function change_blas_library(libblas)
     @eval begin
         using PackageCompiler
         PackageCompiler.create_sysimage(; incremental=false, replace_default=true,
-                                        script=get_precompile_statments_file())
+                                        script=get_precompile_statments_file(),
+                                        cpu_target="generic;sandybridge,-xsaveopt,clone_all;haswell,-rdrnd,base(1)")
     end
 end
