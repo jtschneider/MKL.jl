@@ -1,7 +1,8 @@
 module MKL
 
 using MKL_jll
-VERSION > v"1.7.0-DEV.623" && using LinearAlgebra
+using Pkg, Pkg.Artifacts
+VERSION > v"1.3.0" && using LinearAlgebra
 
 if Base.USE_BLAS64
     const MKLBlasInt = Int64
