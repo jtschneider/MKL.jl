@@ -2,7 +2,9 @@ module MKL
 
 using MKL_jll
 using Pkg, Pkg.Artifacts
-VERSION > v"1.3.0" && using LinearAlgebra
+
+JULIA_VER_NEEDED = v"1.7.0-DEV.641"
+VERSION > JULIA_VER_NEEDED && using LinearAlgebra
 
 if Base.USE_BLAS64
     const MKLBlasInt = Int64
@@ -50,6 +52,6 @@ function mklnorm(x::Vector{Float64})
           length(x), x, 1)
 end
 
-VERSION > v"1.7.0-DEV.623" && include("install.jl")
+include("install.jl")
 
 end # module
