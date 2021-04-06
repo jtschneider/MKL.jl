@@ -1,7 +1,9 @@
 module MKL
 
 using MKL_jll
-using Pkg, Pkg.Artifacts
+using Pkg
+
+VERSION >= v"1.6.0" ? using Artifacts : using Pkg.Artifacts
 
 JULIA_VER_NEEDED = v"1.7.0-DEV.641"
 VERSION > JULIA_VER_NEEDED && using LinearAlgebra
